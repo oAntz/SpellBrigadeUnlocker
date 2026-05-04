@@ -1,6 +1,21 @@
-# The Spell Brigade - Save Unlocker
+# The Spell Brigade - Save Unlocker / Trainer / Cheat Tool
 
-Unlock everything in The Spell Brigade without grinding.
+Skip the insane 1.0 grind. Unlock everything in The Spell Brigade instantly — no more hundreds of hours to max covenants, prestige characters, or buy upgrades.
+
+If you're frustrated by the 1.0 update that made the grind x3-x5 worse, removed achievement-based unlocks, and inflated upgrade costs — this tool fixes all of that in seconds.
+
+---
+
+## Why This Exists
+
+The Spell Brigade 1.0 update turned a fun co-op game into a grind simulator. Players are reporting:
+- Covenants locked behind 20-30 matches of grinding per character, then resetting and repeating 8+ times
+- Upgrades cost so much gold that a 45-minute match barely buys one
+- Characters can no longer be unlocked through achievements — only purchased with gold you were already spending on upgrades
+- Hundreds of hours needed to unlock everything, even cosmetics
+- Quests that are nearly impossible on hardcore difficulty
+
+This tool lets you skip all of that and actually enjoy the game with your friends.
 
 ---
 
@@ -98,3 +113,9 @@ Works on any OS with Python. Save path on Proton:
 ~/.steam/steam/steamapps/compatdata/[APPID]/pfx/drive_c/users/steamuser/AppData/LocalLow/BoltBlasterGames/TheSpellBrigade/
 ```
 Run the script and paste the path when prompted.
+
+---
+
+## Keywords
+
+The Spell Brigade save editor, The Spell Brigade trainer, The Spell Brigade cheat, Spell Brigade unlock all, Spell Brigade grind fix, Spell Brigade covenant unlock, Spell Brigade prestige hack, Spell Brigade gold hack, Spell Brigade 1.0 update fix, Spell Brigade save file editor, Spell Brigade all achievements, Spell Brigade max upgrades, Spell Brigade all outfits, Spell Brigade all spells, Spell Brigade modding tool
