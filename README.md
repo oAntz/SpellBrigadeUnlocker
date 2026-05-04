@@ -116,6 +116,34 @@ Run the script and paste the path when prompted.
 
 ---
 
+## Spell Brigade Guides — The Fast Way
+
+### How to Unlock Covenants in The Spell Brigade
+Normally you need to reach Prestige 2 on each character to unlock all their covenants. That means hitting max rank (Rank 10), ascending, grinding back to Rank 10, and ascending again — per character. With this tool, run "Unlock All" and every character is set to Prestige 2 with all covenants unlocked instantly.
+
+### How to Ascend in The Spell Brigade
+To ascend a character, you need to reach Rank 10 (max rank). Once there, you can reset back to Rank 1 in exchange for a prestige level. Each prestige unlocks new covenants and permanent bonuses. Use the "Ascend-Ready" option to instantly set all characters to Rank 10 so you can ascend them yourself, or use "Unlock All" to skip straight to Prestige 2.
+
+### How to Unlock Abstinence (Solitary Focus) in The Spell Brigade
+The Abstinence covenant (previously called Solitary Focus) requires you to level a spell to Level 20 and prestige specific characters 2 times each — a massive grind after the 1.0 update. This tool unlocks it along with every other covenant instantly.
+
+### How to Get All Wizards in The Spell Brigade
+All wizards and their upgrades are unlocked through the progression system. Instead of grinding gold to purchase each one after the 1.0 update removed achievement unlocks, use "Unlock All" to get every wizard, outfit, and skin immediately.
+
+### How to Get More Gold in The Spell Brigade
+After 1.0, upgrade costs were inflated so much that a 45-minute match barely earns enough for one upgrade. This tool lets you set your gold to 9,999,999 (or any amount you want) so you can buy whatever you need.
+
+### Spell Brigade Ascension Guide
+Ascension is the prestige system in The Spell Brigade. Each time you ascend a character (at Rank 10), they reset to Rank 1 but gain a prestige level, unlocking new covenants and permanent buffs. Prestige 2 unlocks all covenants for a character. This tool can set any prestige level you want across all characters.
+
+### Spell Brigade All Covenants List
+Covenants are passive perks unlocked through the prestige system. Each character has unique covenants that unlock at Prestige 1 and Prestige 2. Rather than grinding each character to Prestige 2 individually (which can take 20-30+ matches each), this tool unlocks all covenants for every character at once.
+
+### Spell Brigade Infusion Elements
+Infusions are elemental combinations that boost your spells. There are 21 elements to discover during gameplay. The "Infusions Only" option instantly discovers all 21 elements so you can start experimenting with builds right away.
+
+---
+
 ## Keywords
 
-The Spell Brigade save editor, The Spell Brigade trainer, The Spell Brigade cheat, Spell Brigade unlock all, Spell Brigade grind fix, Spell Brigade covenant unlock, Spell Brigade prestige hack, Spell Brigade gold hack, Spell Brigade 1.0 update fix, Spell Brigade save file editor, Spell Brigade all achievements, Spell Brigade max upgrades, Spell Brigade all outfits, Spell Brigade all spells, Spell Brigade modding tool
+The Spell Brigade save editor, The Spell Brigade trainer, The Spell Brigade cheat, Spell Brigade unlock all, Spell Brigade grind fix, Spell Brigade covenant unlock, Spell Brigade prestige hack, Spell Brigade gold hack, Spell Brigade 1.0 update fix, Spell Brigade save file editor, Spell Brigade all achievements, Spell Brigade max upgrades, Spell Brigade all outfits, Spell Brigade all spells, Spell Brigade modding tool, Spell Brigade how to ascend, Spell Brigade ascension guide, Spell Brigade how to unlock covenants, Spell Brigade all covenants, Spell Brigade abstinence unlock, Spell Brigade solitary focus, Spell Brigade wizards unlock, Spell Brigade mods, Spell Brigade infusion elements, Spell Brigade prestige guide, Spell Brigade rank 10, Spell Brigade how to prestige, Spell Brigade covenant list, Spell Brigade all wizards, Spell Brigade upgrade costs
