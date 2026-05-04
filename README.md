@@ -145,6 +145,8 @@ All wizards and their upgrades are unlocked through the progression system. Inst
 
 ![All threat levels unlocked](images/threat-levels.png)
 
+![All realms unlocked](images/realms-unlocked.png)
+
 ### How to Get More Gold in The Spell Brigade
 After 1.0, upgrade costs were inflated so much that a 45-minute match barely earns enough for one upgrade. This tool lets you set your gold to 9,999,999 (or any amount you want) so you can buy whatever you need.
 
