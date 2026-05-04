@@ -120,6 +120,8 @@ Run the script and paste the path when prompted.
 
 ## Spell Brigade Guides. The Fast Way
 
+![All 34/34 ascension quests completed](images/quests-completed.png)
+
 ### How to Unlock Covenants in The Spell Brigade
 Normally you need to reach Prestige 2 on each character to unlock all their covenants. That means hitting max rank (Rank 10), ascending, grinding back to Rank 10, and ascending again, per character. With this tool, run "Unlock All" and every character is set to Prestige 2 with all covenants unlocked instantly.
 
