@@ -27,6 +27,7 @@ This tool lets you skip all of that and actually enjoy the game with your friend
 - All upgrades maxed
 - All enchantment masteries unlocked
 - All infusion elements
+- All titles unlocked
 - All artifacts, objectives, and world difficulties
 - 9,999,999 gold
 - Steam achievements sync automatically on game launch
@@ -136,6 +137,8 @@ All wizards and their upgrades are unlocked through the progression system. Inst
 ![All outfits unlocked for Whirlbound Kavin](images/outfits-unlocked.png)
 
 ![All enchantment masteries unlocked](images/enchantments-mastery.png)
+
+![All titles unlocked](images/titles-unlocked.png)
 
 ### How to Get More Gold in The Spell Brigade
 After 1.0, upgrade costs were inflated so much that a 45-minute match barely earns enough for one upgrade. This tool lets you set your gold to 9,999,999 (or any amount you want) so you can buy whatever you need.
