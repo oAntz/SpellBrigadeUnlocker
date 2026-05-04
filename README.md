@@ -145,7 +145,7 @@ All wizards and their upgrades are unlocked through the progression system. Inst
 ### How to Get More Gold in The Spell Brigade
 After 1.0, upgrade costs were inflated so much that a 45-minute match barely earns enough for one upgrade. This tool lets you set your gold to 9,999,999 (or any amount you want) so you can buy whatever you need.
 
-![Prestige 25 badge with The Completionist title](images/prestige-badge.png)
+![High prestige badge with The Completionist title](images/prestige-badge.png)
 
 ### Spell Brigade Ascension Guide
 Ascension is the prestige system in The Spell Brigade. Each time you ascend a character (at Rank 10), they reset to Rank 1 but gain a prestige level, unlocking new covenants and permanent buffs. Prestige 2 unlocks all covenants for a character. This tool can set any prestige level you want across all characters.
