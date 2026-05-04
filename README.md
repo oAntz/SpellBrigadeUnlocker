@@ -1,8 +1,8 @@
 # The Spell Brigade - Save Unlocker / Trainer / Cheat Tool
 
-Skip the insane 1.0 grind. Unlock everything in The Spell Brigade instantly — no more hundreds of hours to max covenants, prestige characters, or buy upgrades.
+Skip the insane 1.0 grind. Unlock everything in The Spell Brigade instantly. No more hundreds of hours to max covenants, prestige characters, or buy upgrades.
 
-If you're frustrated by the 1.0 update that made the grind x3-x5 worse, removed achievement-based unlocks, and inflated upgrade costs — this tool fixes all of that in seconds.
+If you're frustrated by the 1.0 update that made the grind x3-x5 worse, removed achievement-based unlocks, and inflated upgrade costs? This tool fixes all of that in seconds.
 
 ---
 
@@ -11,7 +11,7 @@ If you're frustrated by the 1.0 update that made the grind x3-x5 worse, removed 
 The Spell Brigade 1.0 update turned a fun co-op game into a grind simulator. Players are reporting:
 - Covenants locked behind 20-30 matches of grinding per character, then resetting and repeating 8+ times
 - Upgrades cost so much gold that a 45-minute match barely buys one
-- Characters can no longer be unlocked through achievements — only purchased with gold you were already spending on upgrades
+- Characters can no longer be unlocked through achievements, only purchased with gold you were already spending on upgrades
 - Hundreds of hours needed to unlock everything, even cosmetics
 - Quests that are nearly impossible on hardcore difficulty
 
@@ -37,7 +37,7 @@ Works on brand new saves and existing saves. Your save is always backed up first
 ## How to Use
 
 ### 1. Install Python
-Download from https://www.python.org/downloads/ — check **"Add Python to PATH"** during install.
+Download from https://www.python.org/downloads/ and check **"Add Python to PATH"** during install.
 
 ### 2. Install the required library
 Open Command Prompt and run:
@@ -74,7 +74,7 @@ Complete every quest across all 7 tabs (Missions, Wizards, Spells, Outfits, Scro
 Discover all 21 elements used in the infusion system. Infusions are elemental combinations you normally find during gameplay that boost your spells.
 
 ### 5. Ascend-Ready Only
-Set all characters to Rank 10 (max rank) so they're ready to ascend. Ascending is when you reset a character's rank back to 1 in exchange for a prestige level. This option doesn't actually ascend them — it puts them at the doorstep so you can do it yourself in-game.
+Set all characters to Rank 10 (max rank) so they're ready to ascend. Ascending is when you reset a character's rank back to 1 in exchange for a prestige level. This option doesn't actually ascend them, it puts them at the doorstep so you can do it yourself in-game.
 
 ### 6. Custom Combo
 Pick and choose which unlocks you want. Lets you mix and match any of the above options.
@@ -116,16 +116,16 @@ Run the script and paste the path when prompted.
 
 ---
 
-## Spell Brigade Guides — The Fast Way
+## Spell Brigade Guides. The Fast Way
 
 ### How to Unlock Covenants in The Spell Brigade
-Normally you need to reach Prestige 2 on each character to unlock all their covenants. That means hitting max rank (Rank 10), ascending, grinding back to Rank 10, and ascending again — per character. With this tool, run "Unlock All" and every character is set to Prestige 2 with all covenants unlocked instantly.
+Normally you need to reach Prestige 2 on each character to unlock all their covenants. That means hitting max rank (Rank 10), ascending, grinding back to Rank 10, and ascending again, per character. With this tool, run "Unlock All" and every character is set to Prestige 2 with all covenants unlocked instantly.
 
 ### How to Ascend in The Spell Brigade
 To ascend a character, you need to reach Rank 10 (max rank). Once there, you can reset back to Rank 1 in exchange for a prestige level. Each prestige unlocks new covenants and permanent bonuses. Use the "Ascend-Ready" option to instantly set all characters to Rank 10 so you can ascend them yourself, or use "Unlock All" to skip straight to Prestige 2.
 
 ### How to Unlock Abstinence (Solitary Focus) in The Spell Brigade
-The Abstinence covenant (previously called Solitary Focus) requires you to level a spell to Level 20 and prestige specific characters 2 times each — a massive grind after the 1.0 update. This tool unlocks it along with every other covenant instantly.
+The Abstinence covenant (previously called Solitary Focus) requires you to level a spell to Level 20 and prestige specific characters 2 times each, a massive grind after the 1.0 update. This tool unlocks it along with every other covenant instantly.
 
 ### How to Get All Wizards in The Spell Brigade
 All wizards and their upgrades are unlocked through the progression system. Instead of grinding gold to purchase each one after the 1.0 update removed achievement unlocks, use "Unlock All" to get every wizard, outfit, and skin immediately.
