@@ -22,7 +22,7 @@ Thanks for helping improve this project. This document describes the usual GitHu
 ## Before you open a PR
 
 - Close the game before editing saves; the README already warns about this.
-- Install deps once: `python3 -m pip install -r requirements.txt`
+- Prefer a venv (`python3 -m venv .venv && source .venv/bin/activate`), then install deps: `pip install -r requirements.txt`
 - If you change `spell_brigade_unlocker.py`, sanity-check syntax:
   ```bash
   python3 -m py_compile spell_brigade_unlocker.py
