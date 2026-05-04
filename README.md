@@ -63,26 +63,54 @@ If you're on Linux, Steam Deck, or the exe doesn't work for you, you can run the
 ### 1. Install Python
 Download from https://www.python.org/downloads/ and check **"Add Python to PATH"** during install.
 
-### 2. Install the required library
-Open Command Prompt and run:
+### 2. Virtual environment (recommended)
+Keeps `pycryptodome` out of your global Python install. From the folder that contains `requirements.txt` and `spell_brigade_unlocker.py`, open a terminal and run:
+
+**Windows (Command Prompt):**
 ```
-pip install pycryptodome
+python -m venv .venv
+.venv\Scripts\activate.bat
 ```
 
-### 3. Close the game completely
+**Windows (PowerShell):**
+```
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+If execution of scripts is disabled, run once: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 
-### 4. Run the unlocker
-Double-click `spell_brigade_unlocker.py` or run from Command Prompt:
+**Linux / macOS / Steam Deck (Desktop mode):**
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Your prompt will usually show `(.venv)` when the environment is active. To leave it later: `deactivate`.
+
+### 3. Install dependencies
+With the venv **activated**, still in the project folder:
+```
+pip install -r requirements.txt
+```
+If `pip` is not found, use `python -m pip install -r requirements.txt` (or `python3 -m pip ...` on Linux).
+
+If you skip the venv and install globally, the same `pip install -r requirements.txt` command works — a venv is just cleaner.
+
+### 4. Close the game completely
+
+### 5. Run the unlocker
+With the venv **activated**, run:
 ```
 python spell_brigade_unlocker.py
 ```
+On Linux/Steam Deck you may need `python3` instead of `python`. If you use a venv, prefer the terminal so the correct interpreter loads `pycryptodome`; double-clicking the `.py` file may use another Python without those packages.
 
-### 5. Press 1 for Unlock All, then Y to confirm
+### 6. Press 1 for Unlock All, then Y to confirm
 
-### 6. Launch the game
+### 7. Launch the game
 
 **"pycryptodome" or "Crypto" error?**
-Run `pip install pycryptodome`. If that fails, try `python -m pip install pycryptodome`.
+Activate your venv (step 2), then run `pip install -r requirements.txt` again. If that fails, try `python -m pip install -r requirements.txt`. If you only copied the `.py` file and not `requirements.txt`, run `pip install pycryptodome` inside the same environment you use to run the script.
 
 **"python is not recognized"?**
 Reinstall Python and check "Add Python to PATH" during install.
@@ -118,6 +146,9 @@ Pick and choose which unlocks you want. Lets you mix and match any of the above 
 
 ### 7. Set Gold
 Set your gold to any amount you want.
+
+### 8. Reset All Progress
+Wipes the same progression areas as Unlock All, on **every save slot** in the folder: quests/challenges, infusions, world difficulties, objectives, artifacts, upgrades, gold (to 0), and all characters to Rank 1 with Prestige 0. You must confirm by typing `RESET`. A backup is still created first—copy files from the backup folder back if you change your mind.
 
 ---
 
@@ -207,6 +238,12 @@ Infusions are elemental combinations that boost your spells. There are 21 elemen
   <img src="images/realms-unlocked.png" alt="All realms unlocked" width="500"><br>
   <em>All realms unlocked</em>
 </p>
+
+---
+
+## Contributing
+
+Fork the repository, create a branch off `main`, then open a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md) for branch naming, commits, and what to put in the PR description.
 
 ---
 
