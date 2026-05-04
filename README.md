@@ -63,10 +63,14 @@ If you're on Linux, Steam Deck, or the exe doesn't work for you, you can run the
 ### 1. Install Python
 Download from https://www.python.org/downloads/ and check **"Add Python to PATH"** during install.
 
-### 2. Install the required library
-Open Command Prompt and run:
+### 2. Install dependencies
+From the folder that contains `requirements.txt` and `spell_brigade_unlocker.py`, open Command Prompt (or a terminal) and run:
 ```
-pip install pycryptodome
+pip install -r requirements.txt
+```
+If `pip` is not on your PATH, use:
+```
+python -m pip install -r requirements.txt
 ```
 
 ### 3. Close the game completely
@@ -82,7 +86,7 @@ python spell_brigade_unlocker.py
 ### 6. Launch the game
 
 **"pycryptodome" or "Crypto" error?**
-Run `pip install pycryptodome`. If that fails, try `python -m pip install pycryptodome`.
+Run `pip install -r requirements.txt` from the project folder. If that fails, try `python -m pip install -r requirements.txt`. If you only copied the `.py` file and not `requirements.txt`, run `pip install pycryptodome` instead.
 
 **"python is not recognized"?**
 Reinstall Python and check "Add Python to PATH" during install.
@@ -118,6 +122,9 @@ Pick and choose which unlocks you want. Lets you mix and match any of the above 
 
 ### 7. Set Gold
 Set your gold to any amount you want.
+
+### 8. Reset All Progress
+Wipes the same progression areas as Unlock All, on **every save slot** in the folder: quests/challenges, infusions, world difficulties, objectives, artifacts, upgrades, gold (to 0), and all characters to Rank 1 with Prestige 0. You must confirm by typing `RESET`. A backup is still created first—copy files from the backup folder back if you change your mind.
 
 ---
 
@@ -207,6 +214,12 @@ Infusions are elemental combinations that boost your spells. There are 21 elemen
   <img src="images/realms-unlocked.png" alt="All realms unlocked" width="500"><br>
   <em>All realms unlocked</em>
 </p>
+
+---
+
+## Contributing
+
+Fork the repository, create a branch off `main`, then open a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md) for branch naming, commits, and what to put in the PR description.
 
 ---
 

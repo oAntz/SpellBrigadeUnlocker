@@ -1,8 +1,8 @@
 """
 The Spell Brigade - Save Unlocker
-Unlock covenants, complete challenges, set prestige, and more.
+Unlock covenants, complete challenges, set prestige, reset progression, and more.
 
-Requirements: pip install pycryptodome
+Requirements: pip install -r requirements.txt
 """
 from Crypto.Cipher import AES
 from Crypto.Protocol.KDF import PBKDF2
@@ -370,6 +370,187 @@ def complete_all_challenges(text):
     return before + section
 
 
+def reset_new_challenges(text):
+    ch_start = text.find('"New_ProgressForChallenges"')
+    if ch_start < 0:
+        return text
+
+    before = text[:ch_start]
+    section = text[ch_start:]
+
+    brace_pos = section.find('{')
+    depth = 0
+    dict_end = brace_pos
+    for j in range(brace_pos, len(section)):
+        if section[j] == '{':
+            depth += 1
+        elif section[j] == '}':
+            depth -= 1
+            if depth == 0:
+                dict_end = j
+                break
+    ch_dict = section[brace_pos:dict_end + 1]
+
+    existing_ids = set(int(m.group(1)) for m in re.finditer(r'(\d+):\{', ch_dict))
+
+    for cid in ALL_CHALLENGE_IDS:
+        if cid in existing_ids:
+            pattern_true = rf'(?<!\d)({cid}:\{{[^}}]*?"IsCompleted" : )true'
+            section = re.sub(pattern_true, r'\g<1>false', section, count=1)
+            pattern_val = rf'(?<!\d)({cid}:\{{[^}}]*?"Value" : )\d+'
+            section = re.sub(pattern_val, r'\g<1>0', section, count=1)
+
+    missing_ids = set(ALL_CHALLENGE_IDS) - existing_ids
+    if missing_ids:
+        indent = '\t\t\t\t'
+        indent_m = re.search(r'\n(\t+)\d+:\{', ch_dict)
+        if indent_m:
+            indent = indent_m.group(1)
+        inner = indent + '\t'
+
+        last_entry = None
+        for m in re.finditer(r'\d+:\{[^}]*?\}', ch_dict, re.DOTALL):
+            last_entry = m
+
+        if last_entry:
+            insert_pos = brace_pos + last_entry.end()
+            new_entries = ''
+            for cid in sorted(missing_ids):
+                new_entries += (
+                    f',\r\n{indent}{cid}:{{\r\n{inner}"Value" : 0,\r\n'
+                    f'{inner}"IsCompleted" : false\r\n{indent}}}'
+                )
+            section = section[:insert_pos] + new_entries + section[insert_pos:]
+        else:
+            new_entries = ''
+            for i, cid in enumerate(sorted(missing_ids)):
+                sep = '' if i == 0 else ','
+                new_entries += (
+                    f'{sep}\r\n{indent}{cid}:{{\r\n{inner}"Value" : 0,\r\n'
+                    f'{inner}"IsCompleted" : false\r\n{indent}}}'
+                )
+            section = section[:brace_pos + 1] + new_entries + '\r\n\t\t\t' + section[brace_pos + 1:]
+
+    return before + section
+
+
+def reset_old_challenges(text):
+    ch_start = text.find('"ProgressForChallenges"')
+    if ch_start < 0:
+        return text
+
+    new_ch_start = text.find('"New_ProgressForChallenges"')
+    old_section_end = new_ch_start if new_ch_start > ch_start else len(text)
+    old_section = text[ch_start:old_section_end]
+
+    existing_ids = set(int(m.group(1)) for m in re.finditer(r'(\d+):\{', old_section))
+
+    for cid in ALL_OLD_CHALLENGE_IDS:
+        if cid in existing_ids:
+            pattern_true = rf'(?<!\d)({cid}:\{{[^}}]*?"IsCompleted" : )true'
+            text = re.sub(pattern_true, r'\g<1>false', text, count=1)
+            pattern_val = rf'(?<!\d)({cid}:\{{[^}}]*?"Value" : )\d+'
+            text = re.sub(pattern_val, r'\g<1>0', text, count=1)
+
+    missing_ids = set(ALL_OLD_CHALLENGE_IDS) - existing_ids
+    if missing_ids:
+        indent = '\t\t\t\t\t'
+        indent_m = re.search(r'\n(\t+)\d+:\{', old_section)
+        if indent_m:
+            indent = indent_m.group(1)
+        inner = indent + '\t'
+
+        last_entry = None
+        for m in re.finditer(r'\d+:\{[^}]*?\}', old_section, re.DOTALL):
+            last_entry = m
+
+        if last_entry:
+            insert_pos = ch_start + last_entry.end()
+            new_entries = ''
+            for cid in sorted(missing_ids):
+                new_entries += (
+                    f',\r\n{indent}{cid}:{{\r\n{inner}"Value" : 0,\r\n'
+                    f'{inner}"IsCompleted" : false\r\n{indent}}}'
+                )
+            text = text[:insert_pos] + new_entries + text[insert_pos:]
+        else:
+            brace_start = text.find('{', ch_start + 22)
+            new_entries = ''
+            for i, cid in enumerate(sorted(missing_ids)):
+                sep = '' if i == 0 else ','
+                new_entries += (
+                    f'{sep}\r\n{indent}{cid}:{{\r\n{inner}"Value" : 0,\r\n'
+                    f'{inner}"IsCompleted" : false\r\n{indent}}}'
+                )
+            text = text[:brace_start + 1] + new_entries + '\r\n\t\t\t\t' + text[brace_start + 1:]
+
+    return text
+
+
+def clear_infusions(text):
+    empty = '\r\n\t\t\t'
+    return re.sub(r'("InfusedElements" : \[)[^\]]*(\])', r'\g<1>' + empty + r'\2', text)
+
+
+def reset_world_difficulties(text):
+    empty_worlds = (
+        '0:[\r\n\t\t\t\t\r\n\t\t\t\t],1:[\r\n\t\t\t\t\r\n\t\t\t\t],'
+        '2:[\r\n\t\t\t\t\r\n\t\t\t\t],3:[\r\n\t\t\t\t\r\n\t\t\t\t]'
+    )
+    start = text.find('"CompletedDifficultiesPerWorld"')
+    if start < 0:
+        return text
+    brace_start = text.find('{', start + 30)
+    depth = 0
+    brace_end = brace_start
+    for j in range(brace_start, len(text)):
+        if text[j] == '{' or text[j] == '[':
+            depth += 1
+        elif text[j] == '}' or text[j] == ']':
+            depth -= 1
+            if depth == 0:
+                brace_end = j
+                break
+    return text[:brace_start] + '{' + empty_worlds + '}' + text[brace_end + 1:]
+
+
+def reset_objectives(text):
+    empty = '\r\n\t\t\t'
+    return re.sub(r'("CompletedObjectives" : \[)[^\]]*(\])', r'\g<1>' + empty + r'\2', text)
+
+
+def reset_collected_artifacts(text):
+    empty = '\r\n\t\t\t'
+    return re.sub(r'("CollectedArtifacts" : \[)[^\]]*(\])', r'\g<1>' + empty + r'\2', text)
+
+
+def zero_upgrades(text):
+    new_entries = ','.join(f'{uid}:0' for uid in ALL_UPGRADE_IDS)
+    text = re.sub(
+        r'("New_LevelForUpgrades" : \{)[^}]*(\})',
+        r'\g<1>' + new_entries + r'\r\n\t\t\t\2',
+        text
+    )
+    text = re.sub(
+        r'("LevelForUpgrades" : \{)[^}]*(\})',
+        r'\g<1>' + new_entries + r'\r\n\t\t\t\2',
+        text
+    )
+    return text
+
+
+def reset_total_artifacts(text):
+    return re.sub(r'"TotalCollectedArtifacts" : \d+', '"TotalCollectedArtifacts" : 0', text)
+
+
+def reset_character_progress(text):
+    text = ensure_characters_exist(text)
+    text = re.sub(r'"CurrentRank" : \d+', '"CurrentRank" : 1', text)
+    text = re.sub(r'"ProgressTowardsNextRank" : [0-9.]+', '"ProgressTowardsNextRank" : 0', text)
+    text = re.sub(r'"Prestige" : \d+', '"Prestige" : 0', text)
+    return text
+
+
 def process_slots(save_dir, operations):
     slots = sorted([f for f in os.listdir(save_dir) if f.startswith('save_slot_')])
     for slot_name in slots:
@@ -489,10 +670,16 @@ def main():
     print("    7. Set gold")
     print("       - Set your gold to any amount")
     print()
+    print("    8. RESET ALL PROGRESS (destructive)")
+    print("       - Reverts the same areas as Unlock All: challenges, infusions,")
+    print("         worlds/difficulties, objectives, artifacts, upgrades, gold,")
+    print("         characters (Rank 1, Prestige 0). Applies to every save slot.")
+    print("       - Backup is created first; restore from backup if needed.")
+    print()
     print("    0. Exit")
     print("-" * 60)
 
-    choice = input("\n  Enter choice (0-7): ").strip()
+    choice = input("\n  Enter choice (0-8): ").strip()
 
     if choice == '0':
         print("  Exiting.")
@@ -577,6 +764,21 @@ def main():
         operations = [lambda t, g=amount: set_gold(t, g)]
         desc = f"Set gold to {amount:,}"
 
+    elif choice == '8':
+        operations = [
+            reset_old_challenges,
+            reset_new_challenges,
+            clear_infusions,
+            reset_world_difficulties,
+            reset_objectives,
+            reset_collected_artifacts,
+            zero_upgrades,
+            reset_total_artifacts,
+            lambda t: set_gold(t, 0),
+            reset_character_progress,
+        ]
+        desc = "RESET ALL PROGRESS"
+
     else:
         print("  Invalid choice.")
         input("\n  Press Enter to exit...")
@@ -588,6 +790,13 @@ def main():
     if confirm != 'y':
         print("  Cancelled.")
         return
+
+    if choice == '8':
+        print("\n  This will wipe progression on ALL save slots in this folder.")
+        typed = input("  Type RESET in capitals to confirm: ").strip()
+        if typed != 'RESET':
+            print("  Confirmation did not match. Cancelled.")
+            return
 
     backup_dir = backup_saves(save_dir)
     print(f"\n  Backup saved to: {backup_dir}")
@@ -611,9 +820,13 @@ def main():
 
     print(f"\n  Done! Backup at: {backup_dir}")
     print("  Launch the game to see your changes.")
-    print("\n  NOTE: Characters are set to ascend-ready (Rank 10).")
-    print("  Ascend them manually in-game to unlock covenants (need P2).")
-    print("  Steam achievements will sync automatically on game load.")
+    if choice == '8':
+        print("\n  NOTE: Progress was reset on every slot (Rank 1, Prestige 0, etc.).")
+        print("  Steam may update achievements when the game loads.")
+    else:
+        print("\n  NOTE: Characters are set to ascend-ready (Rank 10).")
+        print("  Ascend them manually in-game to unlock covenants (need P2).")
+        print("  Steam achievements will sync automatically on game load.")
 
     input("\n  Press Enter to exit...")
 
